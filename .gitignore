@@ -1,0 +1,11 @@
+# .NET build artifacts
+**/bin/
+**/obj/
+
+# Jet brains rider
+**.idea/
+*.DotSettings.user
+
+# Allure outputs
+**/allure-results
+**/allure-report

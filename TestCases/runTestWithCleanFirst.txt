@@ -1,0 +1,23 @@
+Если запустить после перезагрузки
+
+# 1) Путь к локальному Allure (если нужен)
+$env:Path += ";C:\Users\Dimedinus\RiderProjects\UmsTestEnv\Tools\allure\bin"
+
+# 2) Проверка, что Allure доступен
+allure --version
+
+# 3) Чистим сборку тестов
+dotnet clean .\TestCases\TestCases.csproj
+
+# 4) (по желанию) чистим предыдущие результаты
+Remove-Item -Recurse -Force .\TestCases\allure-results\* -ErrorAction SilentlyContinue
+ 
+# 5) Гоним тесты — ЭТО важно сделать до generate
+dotnet test .\TestCases\TestCases.csproj
+
+# 6) Генерим постоянный HTML-отчёт
+allure generate ".\TestCases\allure-results" --clean -o ".\TestCases\allure-report"
+
+# 7) Открываем отчёт на фиксированном порту
+allure open .\TestCases\allure-report -p 6060
+
