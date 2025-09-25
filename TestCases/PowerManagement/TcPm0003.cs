@@ -12,11 +12,11 @@ namespace TestCases.PowerManagement
 {
     [TestFixture]
     [AllureNUnit]
-    [AllureSuite("Power Management: UMS Analog Input O1 Voltage step up")]
+    [AllureSuite("Power Management: UMS Analog Input O1 Voltage random drop")]
     [AllureFeature("UMS Tests")]
     [AllureOwner("Aleksei Birjukov")]
     [NonParallelizable]
-    public class TсPm0001
+    public class TсPm0003
     {
         [OneTimeSetUp]
         [AllureBefore("Rig setup: PSU & RS-485 init")]
@@ -42,27 +42,20 @@ namespace TestCases.PowerManagement
                 unitsPerVolt: 1000.0);
         }
 
-        [TestCase(0.00, 0.15, TestName = "Analog Input 1: Set and validate 0.0V")]
-        [TestCase(0.50, 0.15, TestName = "Analog Input 1: Set and validate 0.5V")]
-        [TestCase(1.00, 0.15, TestName = "Analog Input 1: Set and validate 1.0V")]
-        [TestCase(1.50, 0.15, TestName = "Analog Input 1: Set and validate 1.5V")]
-        [TestCase(2.00, 0.15, TestName = "Analog Input 1: Set and validate 2.0V")]
-        [TestCase(2.50, 0.15, TestName = "Analog Input 1: Set and validate 2.5V")]
-        [TestCase(3.00, 0.15, TestName = "Analog Input 1: Set and validate 3.0V")]
-        [TestCase(3.50, 0.15, TestName = "Analog Input 1: Set and validate 3.5V")]
-        [TestCase(4.00, 0.15, TestName = "Analog Input 1: Set and validate 4.0V")]
-        [TestCase(4.50, 0.15, TestName = "Analog Input 1: Set and validate 4.5V")]
-        [TestCase(5.00, 0.15, TestName = "Analog Input 1: Set and validate 5.0V")]
-        [TestCase(5.50, 0.15, TestName = "Analog Input 1: Set and validate 5.5V")]
-        [TestCase(6.00, 0.15, TestName = "Analog Input 1: Set and validate 6.0V")]
-        [TestCase(6.50, 0.15, TestName = "Analog Input 1: Set and validate 6.5V")]
-        [TestCase(7.00, 0.15, TestName = "Analog Input 1: Set and validate 7.0V")]
-        [TestCase(7.50, 0.15, TestName = "Analog Input 1: Set and validate 7.5V")]
-        [TestCase(8.00, 0.15, TestName = "Analog Input 1: Set and validate 8.0V")]
-        [TestCase(8.50, 0.15, TestName = "Analog Input 1: Set and validate 8.5V")]
-        [TestCase(9.00, 0.15, TestName = "Analog Input 1: Set and validate 9.0V")]
-        [TestCase(9.50, 0.15, TestName = "Analog Input 1: Set and validate 9.5V")]
         [TestCase(10.00, 0.15, TestName = "Analog Input 1: Set and validate 10.0V")]
+        [TestCase(1.00, 0.15, TestName = "Analog Input 1: Set and validate 1.0V")]
+        [TestCase(5.00, 0.15, TestName = "Analog Input 1: Set and validate 5.0V")]
+        [TestCase(2.00, 0.15, TestName = "Analog Input 1: Set and validate 2.0V")]
+        [TestCase(9.00, 0.15, TestName = "Analog Input 1: Set and validate 9.0V")]
+        [TestCase(3.00, 0.15, TestName = "Analog Input 1: Set and validate 3.0V")]
+        [TestCase(8.00, 0.15, TestName = "Analog Input 1: Set and validate 8.0V")]
+        [TestCase(4.00, 0.15, TestName = "Analog Input 1: Set and validate 4.0V")]
+        [TestCase(7.00, 0.15, TestName = "Analog Input 1: Set and validate 7.0V")]
+        [TestCase(0.00, 0.15, TestName = "Analog Input 1: Set and validate 0.0V")]
+        [TestCase(10.00, 0.15, TestName = "Analog Input 1: Set and validate 10.0V")]
+        [TestCase(0.50, 0.15, TestName = "Analog Input 1: Set and validate 0.5V")]
+        [TestCase(9.00, 0.15, TestName = "Analog Input 1: Set and validate 9.0V")]
+        [TestCase(0.00, 0.15, TestName = "Analog Input 1: Set and validate 0.0V")]
         public void AnalogInput_O1_StepUp(double targetV, double tolV)
         {
             SetPsuVoltage(targetV);
